@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> TO DO </title>
+</head>
+<body bgcolor="skyblue">
+<div class="container" style="background: yellowgreen;">
+	<h1 class="row" style="margin-left: 30px;"><u> TO DO LIST</u></h1><br><br>
+	<div class="row">
+		<form>
+			<div class="input-group" >
+				<input type="text" placeholder="Todo-items" id="box"
+				style="width: 20vw; height: 40px; background: yellow; font-size: 20px;
+				margin-left: 20px;">
+			</div>
+			<br>
+			<div class="form-group">
+				<input type="button" value="ADD" 
+				style="
+				width: 5vw;
+				height: 30px;
+				font-size: 15px;
+				margin-left: 30px;
+				 background: lime;" onclick="add_item()">
+			</div>
+			<br>
+		</form>
+
+	 </div>
+
+<div class="row">
+	<ul id="list_item" type="circle" style="font-size: 30px;"></ul>
+</div>
+</div>
+
+<script type="text/javascript">
+	function add_item(){
+		let item= document.getElementById("box");
+		let list_item= document.getElementById("list_item");
+
+		if(item.value !="")
+		{
+			let make_li = document.createElement("li");
+			make_li.appendChild(document.createTextNode(item.value));
+			list_item.appendChild(make_li);
+			item.value="";
+
+			make_li.onclick= function() 
+			{
+				this.parentNode.removeChild(this);
+			}
+		}
+		else
+		{
+			alert("please add something in item");
+		}
+
+	}
+
+
+
+</script>
+</body>
+</html>
